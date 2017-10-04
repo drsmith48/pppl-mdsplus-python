@@ -22,7 +22,7 @@ Then run the shell script in the repo/directory::
 Repo structure
 ====================
 
-* ``build.csh`` - configure modules and call Makefile for Python libraries from MDSplus releases in pylib/
+* ``build.csh`` - configure modules and call ``Makefile`` to run build/test recipes
 * ``Makefile`` - build Python packages with py2/py3 (as appropriate) and test packages with py2/py3 (as appropriate) by running test-mdsplus.py
 * ``test-mdsplus.py`` - Python test script to import MDSplus and get MPTS data
 * ``pylib/`` - contains Python libraries from several MDSplus releases
