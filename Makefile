@@ -1,8 +1,24 @@
 ANACONDA2 = /usr/pppl/anaconda2/4.4.0/bin
 ANACONDA3 = /usr/pppl/anaconda3/4.4.0/bin
 
+define PRINT_HELP_PYSCRIPT
+import re, sys
+print("Makefile targets:")
+for line in sys.stdin:
+	match = re.match(r'^([0-9a-zA-Z_. -]+):.*?## (.*)$$', line)
+	if match:
+		target, help = match.groups()
+		for word in target.split():
+			print("%-20s %s" % (word, help))
+endef
+export PRINT_HELP_PYSCRIPT
+
+.PHONY: help
+help: ## show this help message
+	@python -c "$$PRINT_HELP_PYSCRIPT" < $(MAKEFILE_LIST)
+
 .PHONY: mdsplus
-mdsplus:
+mdsplus: ## Build and test Python library for MDSplus release
 	$(eval mdsdir := pylib/$@)
 	@echo "****************************************************"
 	@echo "*** Start: $(mdsdir)"
@@ -14,7 +30,7 @@ mdsplus:
 	@echo "****************************************************"
 	
 .PHONY: mdsplus_alpha v6.1.84 v7.0.71 v7.1.13
-mdsplus_alpha v6.1.84 v7.0.71 v7.1.13:
+mdsplus_alpha v6.1.84 v7.0.71 v7.1.13: ## Build and test Python library for MDSplus release
 	$(eval mdsdir := pylib/$@)
 	@echo "****************************************************"
 	@echo "*** Start: $(mdsdir)"
