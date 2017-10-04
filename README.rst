@@ -34,12 +34,11 @@ Repo structure
   * ``pylib/v7.1.13/`` - Python library from MDSplus v7.1.13
 
 
-
 Other notes
 ==================
 
 1. The module ``nstx/mdsplus`` is MDSplus v5, and it only supports python2. Accordingly, the Makefile only builds and tests with python2.
 2. The module ``nstx/mdsplus_alpha`` is MDSplus v6 and it supports python2 and python3.  The Makefile builds a 'universal wheel' with python3 and tests with python2 and python3.
-3. ``nstx/mdsplus_alpha/setup.py`` contains an error that breaks the build.  Simple fix: change the line ``setup(name=name,`` to ``setup(name=pname,``.
-4. PyPI (python package index) contains packages for MDSplus >= v6.1, so I obtained a few Python libraries from old MDSplus releases on Github.  The libraries are in pylib/vX.Y.ZZ and the libraries work with the module 'nstx/mdsplus_alpha'. The packages are built as a 'universal wheel' with python3 and tested with python2 and python3 in the Makefile.
+3. The file ``setup.py`` in the Python library for the module ``nstx/mdsplus_alpha`` contains an error that breaks the build.  Simple fix: change the line ``setup(name=name,`` to ``setup(name=pname,``.
+4. PyPI (python package index) contains packages for MDSplus >= v6.1, so I obtained a few Python libraries from old MDSplus releases on Github.  The libraries are in pylib/vX.Y.ZZ and the libraries work with the module ``nstx/mdsplus_alpha``. The packages are built as a 'universal wheel' with python3 and tested with python2 and python3 in the Makefile.
 
