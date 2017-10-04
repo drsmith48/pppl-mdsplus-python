@@ -10,7 +10,7 @@ Try it yourself on the PPPL cluster. Copy or clone::
 
 	$ git clone git@github.com:drsmith48/pppl-mdsplus-python.git
 	
-or 
+or::
 
 	$ cp --recursive /u/drsmith/mdsplus-python/ <destination directory>
 
